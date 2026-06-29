@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configs>
+
+	<!-- POI camping lantern variants extend lanternDecorLightWhite. Return the
+	     existing player-placeable lantern helper when they are picked up. -->
+	<append xpath="/blocks/block[@name='lanternDecorLightWhite']">
+		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
+	</append>
+	<set xpath="/blocks/block[@name='lanternDecorLightWhite']/property[@name='TakeDelay']/@value">2</set>
+
+	<!-- Old lantern variants extend lanternOld_01. Override the inherited
+	     pickup item so old lanterns return the old lantern helper. -->
+	<append xpath="/blocks/block[@name='lanternOld_01']">
+		<property name="CanPickup" value="true" param1="lanternOldBlockVariantHelper" />
+		<property name="TakeDelay" value="2" />
+	</append>
+
+</configs>
+
