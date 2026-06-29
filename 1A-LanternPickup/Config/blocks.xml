@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configs>
 
-	<!-- POI camping lantern variants extend lanternDecorLightWhite. Return the
-	     existing player-placeable lantern helper when they are picked up. -->
+	<!-- POI light blocks use BlockLight, which overrides normal pickup commands.
+	     Vanilla player lanterns use a blank Class so the base block pickup path
+	     can show the pickup prompt. Apply that same activation path here. -->
+	<set xpath="/blocks/block[@name='lanternDecorLightWhite']/property[@name='Class']/@value"></set>
+	<set xpath="/blocks/block[@name='lanternDecorLightWhite']/property[@name='Model']/@value">@:Entities/Lighting/lantern_02PlayerPrefab.prefab</set>
+
 	<append xpath="/blocks/block[@name='lanternDecorLightWhite']">
 		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
 	</append>
 	<set xpath="/blocks/block[@name='lanternDecorLightWhite']/property[@name='TakeDelay']/@value">2</set>
 
-	<!-- Old lantern variants extend lanternOld_01. Override the inherited
-	     pickup item so old lanterns return the old lantern helper. -->
+	<append xpath="/blocks/block[@name='lanternDecorLightRed']">
+		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
+	</append>
+	<append xpath="/blocks/block[@name='lanternDecorLightYellow']">
+		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
+	</append>
+	<append xpath="/blocks/block[@name='lanternDecorLightGreen']">
+		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
+	</append>
+	<append xpath="/blocks/block[@name='lanternDecorLightBlue']">
+		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
+	</append>
+	<append xpath="/blocks/block[@name='lanternDecorLightGrey']">
+		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
+	</append>
+	<append xpath="/blocks/block[@name='lanternDecorLightBlack']">
+		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
+	</append>
+	<append xpath="/blocks/block[@name='lanternDecorLightRandomHelper']">
+		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
+	</append>
+
+	<!-- Old lantern variants extend lanternOld_01. Return the existing
+	     player-placeable Old Lantern helper when they are picked up. -->
 	<append xpath="/blocks/block[@name='lanternOld_01']">
+		<property name="Class" value="" />
 		<property name="CanPickup" value="true" param1="lanternOldBlockVariantHelper" />
 		<property name="TakeDelay" value="2" />
 	</append>
 
 </configs>
-
