@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configs>
 
-	<!-- POI light blocks use BlockLight, which overrides normal pickup commands.
-	     Vanilla player lanterns use a blank Class so the base block pickup path
-	     can show the pickup prompt. Apply that same activation path here. -->
-	<set xpath="/blocks/block[@name='lanternDecorLightWhite']/property[@name='Class']/@value"></set>
-	<set xpath="/blocks/block[@name='lanternDecorLightWhite']/property[@name='Model']/@value">@:Entities/Lighting/lantern_02PlayerPrefab.prefab</set>
-
+	<!-- The DLL patches BlockLight's activation UI/action for these blocks. The
+	     XML only defines which player-placeable item is returned on pickup. -->
 	<append xpath="/blocks/block[@name='lanternDecorLightWhite']">
 		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
 	</append>
-	<set xpath="/blocks/block[@name='lanternDecorLightWhite']/property[@name='TakeDelay']/@value">2</set>
 
 	<append xpath="/blocks/block[@name='lanternDecorLightRed']">
 		<property name="CanPickup" value="true" param1="lanternDecorLightBlockVariantHelper" />
@@ -37,9 +32,7 @@
 	<!-- Old lantern variants extend lanternOld_01. Return the existing
 	     player-placeable Old Lantern helper when they are picked up. -->
 	<append xpath="/blocks/block[@name='lanternOld_01']">
-		<property name="Class" value="" />
 		<property name="CanPickup" value="true" param1="lanternOldBlockVariantHelper" />
-		<property name="TakeDelay" value="2" />
 	</append>
 
 </configs>

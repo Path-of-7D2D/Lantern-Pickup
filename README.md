@@ -1,8 +1,7 @@
 # Lantern Pickup
 
-Lantern Pickup is a small XML-only 7 Days To Die V3.0 mod that lets world
-lanterns be picked up directly instead of forcing you to scrap them and craft a
-replacement.
+Lantern Pickup is a small 7 Days To Die V3.0 mod that lets world lanterns be
+picked up directly instead of forcing you to scrap them and craft a replacement.
 
 ## Features
 
@@ -10,7 +9,8 @@ replacement.
 - POI old lanterns can be picked up directly.
 - Picked-up camping lanterns become the normal player-placeable Lantern item.
 - Picked-up old lanterns become the normal player-placeable Old Lantern item.
-- No DLL and no Easy Anti-Cheat skip requirement.
+- Adds the normal pickup prompt to POI light blocks.
+- Allows pickup even if the lantern was damaged while testing.
 
 ## Installation
 
@@ -32,8 +32,13 @@ The folder is installed correctly when this file exists:
 
 ## Multiplayer
 
-Install the mod on the server. Clients should not need a local copy because this
-mod only patches server-side block configuration.
+Install the mod on the server and every connecting client. The pickup prompt is
+client-side UI, and the pickup action is implemented by `LanternPickup.dll`.
+
+## Easy Anti-Cheat
+
+This mod uses Harmony patches, so Easy Anti-Cheat must be off. The mod is marked
+with `SkipWithAntiCheat`.
 
 ## Compatibility
 
@@ -44,9 +49,8 @@ This mod patches `blocks.xml` entries for:
 - `lanternOld_01`, the base block used by the POI old lantern variants.
 
 It may conflict with another mod that changes pickup behavior for the same
-blocks.
+blocks or patches `BlockLight` activation.
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-

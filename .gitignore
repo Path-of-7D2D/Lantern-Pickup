@@ -1,4 +1,7 @@
 *.zip
 *.log
 *.tmp
-
+bin/
+obj/
+*.pdb
+*.user

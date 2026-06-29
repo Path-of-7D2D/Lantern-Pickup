@@ -47,6 +47,11 @@ jobs:
             exit 1
           fi
 
+          if [[ ! -f "1A-LanternPickup/LanternPickup.dll" ]]; then
+            echo "Expected 1A-LanternPickup/LanternPickup.dll to exist."
+            exit 1
+          fi
+
       - name: Create mod zip
         shell: bash
         run: |
@@ -74,4 +79,3 @@ jobs:
           body_path: CHANGELOG.md
           files: ${{ env.ZIP_PATH }}
           fail_on_unmatched_files: true
-

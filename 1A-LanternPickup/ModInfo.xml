@@ -4,6 +4,9 @@
 	<DisplayName value="Lantern Pickup" />
 	<Description value="Lets POI lanterns and old lanterns be picked up directly instead of only salvaged." />
 	<Author value="Path-of-7D2D" />
-	<Version value="0.1.1" />
+	<Version value="0.2.0" />
 	<Website value="https://github.com/Path-of-7D2D/Lantern-Pickup" />
+	<!-- Uses Harmony to add pickup activation to POI light blocks, so it cannot
+	     load with EasyAntiCheat enabled. -->
+	<SkipWithAntiCheat value="true" />
 </xml>
